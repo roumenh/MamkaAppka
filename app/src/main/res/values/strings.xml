@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Mamka Appka</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="today_label">Dnešní fotka</string>
+    <string name="history_label">Historie</string>
+</resources>
