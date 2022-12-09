@@ -1,0 +1,4 @@
+RewriteEngine On    # Turn on the rewriting engine
+
+RewriteRule ^api/day_photo/([0-9a-zA-Z_-]*)$ api/api.php?do=show_one&date=$1 [NC,L]
+RewriteRule ^api/list/([0-9a-zA-Z_-]*)$ api/api.php?do=show_list&from_date=$1 [NC,L]
