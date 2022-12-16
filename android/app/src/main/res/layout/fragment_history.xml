@@ -22,7 +22,10 @@
         android:id="@+id/constrainLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".HistoryFragment">
+        tools:context=".HistoryFragment"
+        android:padding="8dp"
+        android:background="@color/black"
+        >
 
         <!-- TODO: Update blank fragment layout -->
 

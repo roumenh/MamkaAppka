@@ -24,6 +24,9 @@ android {
         }
     }
     compileOptions {
+        // Flag to enable support for the new language APIs
+        coreLibraryDesugaringEnabled = true
+
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -54,4 +57,8 @@ dependencies {
     implementation "com.squareup.moshi:moshi-kotlin:1.13.0"
     // Coil
     implementation "io.coil-kt:coil:1.1.1"
+    //PhotoView
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+    //desugaring
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.5")
 }

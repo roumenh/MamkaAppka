@@ -13,10 +13,11 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/frameLayout"
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".TodayFragment">
+        tools:context=".TodayFragment"
+        android:background="@color/black">
 
         <!-- TODO: Update blank fragment layout -->
 
@@ -24,25 +25,28 @@
             android:id="@+id/textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="@{sharedViewModel.dayPhoto.text}"
             android:gravity="center"
+            android:padding="16dp"
+            android:text="@{sharedViewModel.dayPhoto.text ?? sharedViewModel.errorMessage}"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/photo"
-            tools:text="Popis fotky" />
+            tools:text="Popis fotky"
+            android:textColor="@color/white"/>
 
-        <ImageView
+        <com.github.chrisbanes.photoview.PhotoView
             android:id="@+id/photo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:adjustViewBounds="true"
             android:contentDescription="@{sharedViewModel.dayPhoto.text}"
             android:padding="16dp"
-            android:scaleType="fitXY"
+            android:scaleType="fitCenter"
             app:imageUrl="@{sharedViewModel.dayPhoto.file}"
+            app:layout_constraintBottom_toTopOf="@+id/textView"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/backgrounds/scenic" />
 
@@ -58,16 +62,6 @@
             app:layout_constraintStart_toStartOf="parent"
            />
 
-        <TextView
-            android:id="@+id/errorTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="@{sharedViewModel.errorMessage}"
-            app:layout_constraintBottom_toTopOf="@+id/button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="Error message"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

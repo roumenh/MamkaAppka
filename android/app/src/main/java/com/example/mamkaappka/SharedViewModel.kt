@@ -11,6 +11,7 @@ import com.example.mamkaappka.network.DayPhoto
 import com.example.mamkaappka.network.DaysPhotosApi
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -31,6 +32,7 @@ class SharedViewModel (): ViewModel(){
         Log.d("MAMKAPP","Getting photos")
         val date = getCurrentDateTime()
         val dateInString = date.toString("yyyy-MM-dd")
+        //val dateInString = "2023-12-31"
 
         viewModelScope.launch {
             try {
@@ -66,7 +68,7 @@ class SharedViewModel (): ViewModel(){
             }catch (e: Exception){
                 Log.d("MAMKAPP"," Retrofit Error : ${e.message}")
 
-                val errorMsg = "No photo for today - ${dateInString}"
+                val errorMsg = "Je nám líto! Pro dnešek (${LocalDate.parse(dateInString).format(DateTimeFormatter.ofPattern("d. MMMM"))}) není fotka k dispozici. Kontaktujte administrátora Hrušku."
                 Log.d("MAMKAPP", errorMsg)
                 _errorMessage.value = errorMsg
             }

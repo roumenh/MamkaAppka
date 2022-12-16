@@ -1,5 +1,6 @@
 package com.example.mamkaappka
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -7,6 +8,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mamkaappka.databinding.OneDayPhotoBinding
 import com.example.mamkaappka.network.DayPhoto
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class DaysPhotosAdapter (val clickListener: DaysPhotosListener) :
     ListAdapter<DayPhoto, DaysPhotosAdapter.DaysPhotosViewHolder>(DiffCallback){
@@ -17,7 +20,11 @@ class DaysPhotosAdapter (val clickListener: DaysPhotosListener) :
         fun bind(clickListener: DaysPhotosListener, dayphoto: DayPhoto){
             binding.dayPhoto = dayphoto             // this won't work without the <data> tag in fragment_book.xaml
             binding.clickListener = clickListener   // without this, the click listener below and defined in fragment_book.xaml won't work
-            binding.executePendingBindings()        // not sure what this is good for
+
+            // make nicer date
+            binding.dayphotoText.text = LocalDate.parse(dayphoto.date).format(DateTimeFormatter.ofPattern("d. MMMM yy"))
+
+            binding.executePendingBindings()        // this is to execute the bindings..
         }
     }
 
@@ -32,6 +39,7 @@ class DaysPhotosAdapter (val clickListener: DaysPhotosListener) :
         )
         return viewHolder
     }
+
 
     //override the onBindViewHolder() to bind the view at the specified position
     override fun onBindViewHolder(holder: DaysPhotosViewHolder, position: Int) {

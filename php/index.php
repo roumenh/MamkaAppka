@@ -14,7 +14,7 @@
 <form action="" method="POST" enctype="multipart/form-data">
 Date: <input type="date" id="start" name="date"
        value="2022-12-24"
-       min="2022-12-24" max="2111-12-31" required>
+       min="2022-12-12" max="2111-12-31" required>
 
 <label>Text</label><br />
 <textarea id="text" name="text" rows="4" cols="50" required>

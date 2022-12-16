@@ -30,11 +30,11 @@ if ($_GET['do'] == "show_one"){
 }elseif($_GET['do'] == "show_list"){
 
 	if ($_GET['from_date'] == ""){
-		$result = mysqli_query($con, "SELECT * FROM `days_photos`");
+		$result = mysqli_query($con, "SELECT * FROM `days_photos` ORDER BY date ASC");
 	}else{
 		// from_date is set, need to only display pictures today and older.. not future photos
 		
-		$result = mysqli_query($con, "SELECT * FROM `days_photos` WHERE date <= '".$_GET['from_date']."'");
+		$result = mysqli_query($con, "SELECT * FROM `days_photos` WHERE date <= '".$_GET['from_date']."' ORDER BY date ASC");
 	}
 
 	
