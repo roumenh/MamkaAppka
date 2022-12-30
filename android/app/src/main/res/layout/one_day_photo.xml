@@ -15,27 +15,26 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{() -> clickListener.onClick(dayPhoto)}"
-       >
+        android:onClick="@{() -> clickListener.onClick(dayPhoto)}">
 
 
         <TextView
             android:id="@+id/dayphoto_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="22. prosince 2022"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:textColor="@color/white"/>
+            tools:text="22. prosince 2022" />
 
         <ImageView
             android:id="@+id/dayphoto_thumbnail"
             android:layout_width="0dp"
             android:layout_height="200dp"
+            android:layout_margin="8dp"
             android:adjustViewBounds="true"
             android:contentDescription="@{dayPhoto.text}"
-            android:layout_margin="8dp"
             android:scaleType="centerCrop"
             app:imageUrl="@{dayPhoto.file}"
             app:layout_constraintEnd_toEndOf="parent"

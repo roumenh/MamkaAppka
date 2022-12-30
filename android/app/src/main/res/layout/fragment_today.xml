@@ -28,12 +28,12 @@
             android:gravity="center"
             android:padding="16dp"
             android:text="@{sharedViewModel.dayPhoto.text ?? sharedViewModel.errorMessage}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="Popis fotky"
-            android:textColor="@color/white"/>
+            tools:text="Popis fotky" />
 
         <com.github.chrisbanes.photoview.PhotoView
             android:id="@+id/photo"
